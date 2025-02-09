@@ -36,8 +36,8 @@ We propose a website named FITNUR that automatically:
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
+- html, javascript,css
+- 
 - [Libraries used]
 - [Tools used]
 
