@@ -64,7 +64,8 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1](![Screenshot 2025-02-09 094913](https://github.com/user-attachments/assets/4216eff9-834d-426d-b935-f296afe0dda3)
+)
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
