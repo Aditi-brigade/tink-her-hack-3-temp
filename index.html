@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNUR - Eco Health</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --secondary: #10b981;
+            --background: #f0fdf4;
+            --surface: #ffffff;
+            --text: #064e3b;
+            --text-light: #047857;
+            --accent: #34d399;
+            --neutral: #d1fae5;
+            --error: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 100% 100%, var(--neutral) 0%, transparent 50%),
+                radial-gradient(circle at 0% 0%, var(--neutral) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leaf-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-10 10-20 20-20s20 10 20 20-10 20-20 20-20-10-20-20z' fill='%23ffffff' fill-opacity='0.4'/%3E%3C/svg%3E");
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .brand-container img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .brand-container h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .eco-card {
+            background: var(--surface);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--neutral);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--neutral);
+            opacity: 0.5;
+            border-radius: 0 0 0 100%;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--background);
+            border: 2px solid var(--neutral);
+            border-radius: 0.75rem;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+        }
+
+        .eco-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0)
+            );
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .eco-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .eco-button:hover::after {
+            left: 100%;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: var(--neutral);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            position: relative;
+        }
+
+        .result-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--neutral);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="leaf-pattern"></div>
+        <div class="header-content">
+            <div class="brand-container">
+                <img src="https://img.freepik.com/premium-vector/cute-man-lifting-dumbbell-fitness-gym-cartoon-vector-icon-illustration-people-sport-icon-isolated_138676-5450.jpg?semt=ais_hybrid" alt="FITNUR Logo">
+                <h1>FITNUR</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="eco-card">
+            <h2>About</h2>
+            <p>
+                <strong>FITNUR</strong> is a personalized fitness and nutrition platform designed to help users achieve their health goals 
+                by integrating advanced health data like  blood test reports, BMI,height and weight. Our mission is to provide 
+                a tailored fitness plan and nutrition recommendations based on each user’s unique health profile.
+            </p>
+        </section>
+
+        <section class="eco-card" id="data-input">
+            <h3>Upload Your Health Data</h3>
+            <form id="health-form" class="form-grid">
+                <div class="input-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" name="weight" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" name="height" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="bmi">BMI</label>
+                    <input type="number" id="bmi" name="bmi" step="0.1" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label for="blood">Blood Test Result</label>
+                    <input type="text" id="blood" name="blood" placeholder="e.g., Normal, High Cholesterol" required>
+                </div>
+
+                <button type="button" class="eco-button" onclick="generatePlan()">Get Personalized Plan</button>
+            </form>
+        </section>
+
+        <section class="eco-card output-section" id="output">
+            <h2>Your Personalized Plan</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>Workout Plan</h3>
+                    <p id="workout-plan"></p>
+                </div>
+                <div class="result-card">
+                    <h3>Nutrition Tips</h3>
+                    <p id="nutrition-tips"></p>
+                </div>
+            </div>
+            <p><strong>Need more help? <a href="#">Contact a mentor</a></strong></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 FITNUR. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@fitnur.com">support@fitnur.com</a></p>
+        <p>Call us: <a href="tel:+9526862477">+95 2686 2477</a></p>
+    </footer>
+
+    <script>
+        // Function to calculate BMI and update it instantly
+       
+            function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100;  // Convert height to meters
+    
+            if (weight > 0 && height > 0) {
+                const bmi = (weight / (height * height)).toFixed(1);
+                document.getElementById('bmi').value = bmi;
+            } else {
+                document.getElementById('bmi').value = '';
+            }
+        }
+            // Add event listeners for instant BMI calculation
+        document.getElementById('weight').addEventListener('input', calculateBMI);
+        document.getElementById('height').addEventListener('input', calculateBMI);
+       
+        document.getElementById('bmi').addEventListener('input', calculateBMI);
+
+        // Function to generate a personalized plan
+        function generatePlan() {
+            const bmi = parseFloat(document.getElementById('bmi').value);
+            const blood = document.getElementById('blood').value.toLowerCase();
+
+            let workoutPlan = "";
+            let nutritionTips = "";
+
+            if (bmi < 18.5) {
+                workoutPlan = `
+                    <p><strong>Focus on building muscle mass through resistance training exercises like squats, lunges, push-ups, pull-ups, and weightlifting, while also incorporating moderate-intensity cardio activities like walking, swimming, or cycling to promote healthy weight gain.</strong></p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrz2_OuPugLqMprUxjVhlNWX3-MBl-9f8Awg&s" alt="Strength Training" width="200">
+                    </div>
+                    <h4>Key Elements of a Workout Plan:</h4>
+                    <ul>
+                        <li><strong>Strength Training:</strong>
+                            <ul>
+                                <li>Compound exercises: Squats, lunges, deadlifts, bench press, overhead press, rows</li>
+                                <li>Bodyweight exercises: Push-ups, pull-ups, dips, planks</li>
+                                <li>Focus on progressive overload: Gradually increase weight or repetitions over time to stimulate muscle growth</li>
+                            </ul>
+                        </li>
+                        <li><strong>Cardio Exercise:</strong>
+                            <ul>
+                                <li>Walking: Start with brisk walking and gradually increase intensity or duration</li>
+                                <li>Swimming: Low-impact exercise that engages multiple muscle groups</li>
+                                <li>Cycling: Stationary or outdoor cycling, good for moderate intensity cardio</li>
+                                <li>Stair climbing: High-intensity exercise for leg muscles</li>
+                            </ul>
+                        </li>
+                    </ul>
+                `;
+
+                nutritionTips = `
+                    <h4>Nutrition Plan for Healthy Weight Gain:</h4>
+                    <p><strong>Focus on high-calorie, nutrient-rich foods to promote muscle growth and maintain energy levels. Prioritize proteins, healthy fats, and complex carbohydrates.</strong></p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="https://www.geneticnutrition.in/cdn/shop/articles/crafting-a-weight-gain-diet-plan-nutritional-tips-and-meal-ideas-218662.webp?v=1718529584&width=1920" alt="Healthy Nutrition" width="200">
+                    </div>
+                    <h4>Key Elements of a Nutrition Plan:</h4>
+                    <ul>
+                        <li><strong>Protein Intake:</strong> Essential for muscle growth and recovery.
+                            <ul>
+                                <li>Lean meats (chicken breast, turkey), fish (salmon, tuna), eggs, dairy (Greek yogurt, cottage cheese)</li>
+                                <li>Plant-based proteins: tofu, tempeh, legumes (lentils, chickpeas, black beans), quinoa</li>
+                                <li>Protein shakes and smoothies with added fruits, nuts, and seeds</li>
+                            </ul>
+                        </li>
+                        <li><strong>Healthy Fats:</strong> Important for calorie-dense meals and overall health.
+                            <ul>
+                                <li>Avocado, nuts (almonds, walnuts), seeds (chia, flax), olive oil, peanut butter</li>
+                                <li>Fatty fish (salmon, mackerel, sardines)</li>
+                                <li>Coconut milk, full-fat dairy products</li>
+                            </ul>
+                        </li>
+                        <li><strong>Complex Carbohydrates:</strong> Provides sustained energy and supports muscle growth.
+                            <ul>
+                                <li>Sweet potatoes, brown rice, quinoa, oats, whole-grain bread and pasta</li>
+                                <li>Fruits: bananas, berries, apples, oranges</li>
+                                <li>Vegetables: leafy greens, broccoli, carrots, bell peppers</li>
+                            </ul>
+                        </li>
+                    </ul>
+                `;
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                workoutPlan = `
+                    <p><strong>Maintain your current weight and focus on balanced fitness by incorporating strength training, cardio, and flexibility exercises to stay fit and healthy.</strong></p>
+                    <h4>Key Elements of a Workout Plan:</h4>
+                    <ul>
+                        <li><strong>Strength Training:</strong> Focus on full-body workouts 3-4 times a week.
+                            <ul>
+                                <li>Compound exercises: Deadlifts, squats, bench press, rows</li>
+                                <li>Include core exercises: Plank, Russian twists, leg raises</li>
+                            </ul>
+                        </li>
+                        <li><strong>Cardio Exercise:</strong> 150 minutes of moderate-intensity cardio per week.
+                            <ul>
+                                <li>Running, cycling, swimming, or dancing</li>
+                                <li>Include 1-2 sessions of high-intensity interval training (HIIT)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Flexibility and Mobility:</strong> Yoga or stretching exercises 2-3 times a week</li>
+                    </ul>
+                `;
+
+                nutritionTips = `
+        <h4>Balanced Nutrition Plan:</h4>
+        <p><strong>Focus on a balanced diet with appropriate proportions of proteins, carbohydrates, fats, and fiber to maintain optimal health.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdMz4FFqPYe-03-VaQWs1Zb5lExSdCUOaoQ&s" width="200" height="150">
+        </div>
+        <h4>Key Elements of a Nutrition Plan:</h4>
+        <ul>
+            <li><strong>Protein Intake:</strong> Supports muscle repair and overall health.
+                <ul>
+                    <li>Lean meats, fish, eggs, dairy</li>
+                    <li>Plant-based proteins: beans, lentils, tofu</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGj-pd18C0jSlmDN68dTFgyyvNit38qykFg&s width="200" height="200">
+                </ul>
+            </li>
+            <li><strong>Healthy Fats:</strong> Essential for brain health and hormone production.
+                <ul>
+                    <li>Avocados, olive oil, nuts, seeds</li>
+                    <li>Fatty fish: salmon, mackerel</li>
+                </ul>
+            </li>
+            <li><strong>Complex Carbohydrates:</strong> Provides sustained energy.
+                <ul>
+                    <li>Whole grains, sweet potatoes, quinoa</li>
+                    <li>Fruits and vegetables</li>
+                </ul>
+            </li>
+            <li><strong>Hydration:</strong> Drink at least 8 glasses of water per day.</li>
+        </ul>
+        <h4>Sample Meal Plan:</h4>
+        <ul>
+            <li><strong>Breakfast:</strong> Oatmeal with berries and almond butter</li>
+            <li><strong>Snack:</strong> Apple with peanut butter</li>
+            <li><strong>Lunch:</strong> Grilled chicken salad with quinoa and olive oil dressing</li>
+            <li><strong>Snack:</strong> Greek yogurt with honey and nuts</li>
+            <li><strong>Dinner:</strong> Baked salmon with sweet potato and steamed broccoli</li>
+            <li><strong>Evening Snack:</strong> Cottage cheese with mixed berries</li>
+        </ul>
+    `;
+}
+else {
+    workoutPlan = `
+        <p><strong>Focus on weight loss with a combination of cardio, strength training, and flexibility exercises. Prioritize fat loss while preserving muscle mass.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://www.mensjournal.com/.image/t_share/MjA5MjM2NjAxMzI1MjMzNzc2/weight-loss-exercise-plan.jpg" width="200" height="200">
+        </div>
+        <h4>Key Elements of a Workout Plan:</h4>
+        <ul>
+            <li><strong>Cardio Exercise:</strong> Aim for 200-300 minutes of moderate-intensity cardio per week.
+                <ul>
+                    <li>Walking, jogging, cycling, swimming, or group fitness classes</li>
+                    <li>Include 2-3 sessions of high-intensity interval training (HIIT) for fat burning</li>
+                </ul>
+            </li>
+            <li><strong>Strength Training:</strong> Full-body workouts 2-3 times a week to build muscle and boost metabolism.
+                <ul>
+                    <li>Focus on compound movements: squats, push-ups, rows</li>
+                    <li>Use moderate weights with higher repetitions (12-15 reps per set)</li>
+                </ul>
+            </li>
+            <li><strong>Flexibility and Recovery:</strong> Yoga, stretching, or low-intensity activities 2-3 times a week to improve mobility and prevent injuries.</li>
+        </ul>
+        <h5>Sample Workout Routine:</h5>
+        <ul>
+            <li><strong>Day 1: Cardio and Core</strong>
+                <ul>
+                    <li>30-minute brisk walk or jog</li>
+                    <img src="https://img.redbull.com/images/c_crop,x_702,y_0,h_2135,w_1708/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2017/04/19/14810946-3c3d-4284-98d3-6135705a572b/courtney-atkinson width="100" height="100">
+                    <li>Plank: 3 sets of 30 seconds</li>
+                    <li>Bicycle crunches: 3 sets of 20 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 2: Full-Body Strength</strong>
+                <ul>
+                    <li>Bodyweight squats: 3 sets of 12 reps</li>
+                    <li>Dumbbell rows: 3 sets of 10 reps per arm</li>
+                    <li>Push-ups: 3 sets of 10-15 reps</li>
+                    <li>Russian twists: 3 sets of 20 reps</li>
+                    <ing src="https://www.dmoose.com/cdn/shop/articles/1_3.jpg?v=1648899116 width="200" height="200">
+                </ul>
+            </li>
+            <li><strong>Day 3: Active Recovery (Yoga or Light Stretching)</strong></li>
+            <li><strong>Day 4: HIIT and Core</strong>
+                <ul>
+                    <li>20-minute HIIT workout (30 seconds work, 30 seconds rest for 8-10 rounds)</li>
+                    <li>Leg raises: 3 sets of 15 reps</li>
+                    <li>Mountain climbers: 3 sets of 20 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 5: Full-Body Strength</strong></li>
+            <li><strong>Day 6: Cardio (Longer session - 40-60 minutes of walking, cycling, or swimming)</strong></li>
+            <li><strong>Day 7: Rest or Light Activity</strong></li>
+        </ul>
+    `;
+
+    nutritionTips = `
+        <h4>Nutrition Plan for Weight Loss:</h4>
+        <p><strong>Focus on creating a calorie deficit while ensuring balanced nutrition. Prioritize high-protein, high-fiber foods to keep you full and energized.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://c.ndtvimg.com/2023-07/m9v7pm4_healthy-diet_625x300_16_July_23.jpg?im=FaceCrop,algorithm=dnn,width=384,height=384 width="200" height="150">
+        </div>
+        <h4>Key Elements of a Nutrition Plan:</h4>
+        <ul>
+            <li><strong>High-Protein Diet:</strong> Helps with muscle retention and keeps you full longer.
+                <ul>
+                    <li>Lean meats, eggs, low-fat dairy</li>
+                    <li>Plant-based proteins: lentils, beans, tofu</li>
+                </ul>
+            </li>
+            <li><strong>Healthy Fats:</strong> Supports metabolism and hormone balance.
+                <ul>
+                    <li>Avocado, olive oil, nuts, seeds</li>
+                    <li>Fatty fish: salmon, sardines</li>
+                </ul>
+            </li>
+            <li><strong>Fiber-Rich Foods:</strong> Improves digestion and promotes satiety.
+                <ul>
+                    <li>Whole grains, fruits, vegetables, legumes</li>
+                </ul>
+            </li>
+            <li><strong>Limit Processed Foods:</strong> Avoid sugary drinks, refined carbs, and fried foods.</li>
+            <li><strong>Hydration:</strong> Drink plenty of water (2-3 liters per day).</li>
+        </ul>
+        <h4>Sample Meal Plan:</h4>
+        <ul>
+            <li><strong>Breakfast:</strong> Scrambled eggs with spinach and whole-grain toast</li>
+            <li><strong>Snack:</strong> Carrot sticks with hummus</li>
+            <li><strong>Lunch:</strong> Grilled chicken breast with quinoa and steamed broccoli</li>
+            <li><strong>Snack:</strong> Cottage cheese with cucumber slices</li>
+            <li><strong>Dinner:</strong> Baked salmon with roasted sweet potato and mixed greens</li>
+            <li><strong>Evening Snack:</strong> A handful of almonds or a small protein shake</li>
+        </ul>
+    `;
+}
+
+            if (blood.includes("cholesterol")) {
+                nutritionTips += " Also, avoid high-fat foods to manage cholesterol.";
+            }
+
+            // Display the personalized plan
+            document.getElementById('workout-plan').innerHTML = `<strong>Workout Plan:</strong> ${workoutPlan}`;
+            document.getElementById('nutrition-tips').innerHTML = `<strong>Nutrition Tips:</strong> ${nutritionTips}`;
+            document.getElementById('output').style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,44 +1,33 @@
-# [FITNUR]🎯
-
+# [Project Name] 🎯
 
 
 ## Basic Details
-### Team Name: BRIGADE
+### Team Name: [Name]
 
 
 ### Team Members
-- Member 1: Aditi M - MAR ATHANASIUS COLLEGE OF ENGINEERING
-- Member 2: Trisha Nair - MAR ATHANASIUS COLLEGE OF ENGINEERING
+- Member 1: [Name] - [College]
+- Member 2: [Name] - [College]
+- Member 3: [Name] - [College]
 
 ### Hosted Project Link
 [mention your project hosted project link here]
 
 ### Project Description
-Takes weight and height and automatically analyze the bmi.With regards to bmi range the person is given his/her workout and nutrition plan.
+[2-3 lines about what your project does]
 
 ### The Problem statement
-In today’s world, maintaining good health and fitness is a top priority for many individuals. However, a significant challenge lies in understanding one’s fitness status and getting a personalized workout and nutrition plan without consulting a professional. Most people are unaware of their Body Mass Index (BMI) and its implications for their health. There is a need for an automated solution that can:
-
-1.Calculate BMI based on weight and height.
-2.Classify individuals into different BMI categories (underweight, normal, overweight).
-3.Provide personalized fitness and nutrition advice according to the BMI range.
+[What ridiculous problem are you solving?]
 
 ### The Solution
-We propose a website named FITNUR that automatically:
-
-1.Takes Weight and Height Input: Users can input their weight and height.
-2.BMI Calculation: The application calculates the BMI 
-3.BMI Classification: The application classifies the BMI into the following categories:
-○ Underweight (BMI < 18.5)
-○ Normal weight (BMI 18.5–24.9)
-○ Overweight (BMI>24.9)
+[How are you solving it? Keep it fun!]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- html, javascript,css
-- plain html,css,javascript
-- nil
+- [Languages used]
+- [Frameworks used]
+- [Libraries used]
 - [Tools used]
 
 For Hardware:

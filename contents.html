@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body style="background-color:rgb(176, 230, 216);">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNUR</title>
+    <img src="https://img.freepik.com/premium-vector/cute-man-lifting-dumbbell-fitness-gym-cartoon-vector-icon-illustration-people-sport-icon-isolated_138676-5450.jpg?semt=ais_hybrid"  width="200" height="154" style="float:left">
+    <style>
+        body {
+            font-family: 'monaco', monospace;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #287b2a;
+            color: rgb(223, 225, 237);
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .output-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            font-size: 12px;
+            bottom: 0;
+            width: 100%;
+        }
+        button {
+            background-color: #287b2a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FITNUR: Your Personalized Fitness and Nutrition Guide</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="data-input">
+            <h2>About</h2>
+            <p>
+                <strong>FITNUR</strong> is a personalized fitness and nutrition platform designed to help users achieve their health goals 
+                by integrating advanced health data like DNA test results, blood test reports, BMI, and weight. Our mission is to provide 
+                a tailored fitness plan and nutrition recommendations based on each user’s unique health profile.
+            </p>
+            <h3>Upload Your Health Data</h3>
+            <form id="health-form">
+                <label for="weight">Weight (kg):<img src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20241010093744.jpg"  width="400" height="200" style="float:right"  width="400" height="200" style="float:right"></label>
+                <input type="number" id="weight" name="weight" required><br><br>
+
+                <label for="height">Height (cm):></label>
+                <input type="number" id="height" name="height" required><br><br>
+
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" readonly><br><br>
+        
+                <label for="blood">Blood Test Result:</label>
+                <input type="text" id="blood" name="blood" placeholder="e.g., Normal, High Cholesterol" required><br><br>
+
+                <button type="button" onclick="generatePlan()">Get Personalized Plan</button>
+            </form>
+        </section>
+
+        <section class="output-section" id="output">
+            <h2>Your Personalized Plan</h2>
+            <p id="workout-plan"></p>
+            <p id="nutrition-tips"></p>
+            <p><strong>Need more help? <a href="#">Contact a mentor</a></strong></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 FITNUR. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@fitnur.com">support@fitnur.com</a></p>
+        <p>Call us: <a href="tel:+9526862477">9526862477</a></p>
+    </footer>
+
+    <script>
+        // Function to calculate BMI and update it instantly
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100;  // Convert height to meters
+    
+            if (weight > 0 && height > 0) {
+                const bmi = (weight / (height * height)).toFixed(1);
+                document.getElementById('bmi').value = bmi;
+            } else {
+                document.getElementById('bmi').value = '';
+            }
+        }
+
+        // Add event listeners for instant BMI calculation
+        document.getElementById('weight').addEventListener('input', calculateBMI);
+        document.getElementById('height').addEventListener('input', calculateBMI);
+
+        // Function to generate a personalized plan
+        function generatePlan() {
+            const bmi = parseFloat(document.getElementById('bmi').value);
+            const blood = document.getElementById('blood').value.toLowerCase();
+
+            let workoutPlan = "";
+            let nutritionTips = "";
+
+            if (bmi < 18.5) {
+    workoutPlan = `
+        <p><strong>Focus on building muscle mass through resistance training exercises like squats, lunges, push-ups, pull-ups, and weightlifting, while also incorporating moderate-intensity cardio activities like walking, swimming, or cycling to promote healthy weight gain.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrz2_OuPugLqMprUxjVhlNWX3-MBl-9f8Awg&s">
+        </div>
+        <h4>Key Elements of a Workout Plan:</h4>
+        <ul>
+            <li><strong>Strength Training:</strong>
+                <ul>
+                    <li>Compound exercises: Squats, lunges, deadlifts, bench press, overhead press, rows</li>
+                    <li>Bodyweight exercises: Push-ups, pull-ups, dips, planks</li>
+                    <li>Focus on progressive overload: Gradually increase weight or repetitions over time to stimulate muscle growth</li>
+                </ul>
+            </li>
+            <li><strong>Cardio Exercise:</strong>
+                <ul>
+                    <li>Walking: Start with brisk walking and gradually increase intensity or duration</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPnxLGYw8eW19n5dgLy8TMegpyZmkkU7XDXw&s width=100 height=100">
+                    <li>Swimming: Low-impact exercise that engages multiple muscle groups</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL8xe7diCzYKMWO8NOQh26Uub-7KjCa6073g&s width=100 height=100">
+                    <li>Cycling: Stationary or outdoor cycling, good for moderate intensity cardio</li>
+                    <img src="https://images.immediate.co.uk/production/volatile/sites/30/2023/12/Cyclist-in-red-c9e267e.jpg?quality=90&resize=440,400 width=100 height=100">
+                    <li>Stair climbing: High-intensity exercise for leg muscles</li>
+                    <img src="https://cathe.com/wp-content/uploads/2011/05/istock_000010037631xsmall.jpg">
+                </ul>
+            </li>
+        </ul>
+        <h5>Workout Routine:</h5>
+        <ul>
+            <li><strong>Day 1: Legs and Core</strong>
+                <ul>
+                    <li>Squats: 3 sets of 10-12 reps <img src="https://images.squarespace-cdn.com/content/v1/5ae76a0f9772ae2e875cfc6e/cb9d9664-cae1-4c3d-9b94-66456a63e9ce/Squat+Musculature" alt="Squat" width="200" height="100" style="float:right"></li>
+                    <li>Lunges: 3 sets of 10-12 reps per leg</li>
+                    <li>Calf raises: 3 sets of 15-20 reps</li>
+                    <li>Plank: 3 sets of 30-60 seconds</li>
+                </ul>
+            </li>
+            <li><strong>Day 2: Chest and Triceps</strong>
+                <ul>
+                    <li>Bench press: 3 sets of 10-12 reps</li>
+                    <li>Incline dumbbell press: 3 sets of 10-12 reps</li>
+                    <li>Triceps pushdowns: 3 sets of 10-12 reps</li>
+                    <li>Overhead triceps extensions: 3 sets of 10-12 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 3: Back and Biceps</strong>
+                <ul>
+                    <li>Pull-ups: 3 sets of as many reps as possible</li>
+                    <li>Lat pulldowns: 3 sets of 10-12 reps</li>
+                    <li>Bicep curls: 3 sets of 10-12 reps</li>
+                    <li>Hammer curls: 3 sets of 10-12 reps</li>
+                </ul>
+            </li>
+        </ul>
+    `;
+
+    nutritionTips = `
+        <h4>Nutrition Plan for Healthy Weight Gain:</h4>
+        <p><strong>Focus on high-calorie, nutrient-rich foods to promote muscle growth and maintain energy levels. Prioritize proteins, healthy fats, and complex carbohydrates.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://www.geneticnutrition.in/cdn/shop/articles/crafting-a-weight-gain-diet-plan-nutritional-tips-and-meal-ideas-218662.webp?v=1718529584&width=1920" alt="Healthy Nutrition" width="200" height=; border-radius: 8px;">
+        </div>
+        <h4>Key Elements of a Nutrition Plan:</h4>
+        <ul>
+            <li><strong>Protein Intake:</strong> Essential for muscle growth and recovery.
+                <ul>
+                    <li>Lean meats (chicken breast, turkey), fish (salmon, tuna), eggs, dairy (Greek yogurt, cottage cheese)</li>
+                    <li>Plant-based proteins: tofu, tempeh, legumes (lentils, chickpeas, black beans), quinoa</li>
+                    <li>Protein shakes and smoothies with added fruits, nuts, and seeds</li>
+                </ul>
+            </li>
+            <li><strong>Healthy Fats:</strong> Important for calorie-dense meals and overall health.
+                <ul>
+                    <li>Avocado, nuts (almonds, walnuts), seeds (chia, flax), olive oil, peanut butter</li>
+                    <li>Fatty fish (salmon, mackerel, sardines)</li>
+                    <li>Coconut milk, full-fat dairy products</li>
+                </ul>
+            </li>
+            <li><strong>Complex Carbohydrates:</strong> Provides sustained energy and supports muscle growth.
+                <ul>
+                    <li>Sweet potatoes, brown rice, quinoa, oats, whole-grain bread and pasta</li>
+                    <li>Fruits: bananas, berries, apples, oranges</li>
+                    <li>Vegetables: leafy greens, broccoli, carrots, bell peppers</li>
+                </ul>
+            </li>
+            <li><strong>Meal Frequency:</strong> Eat 5-6 smaller meals throughout the day to ensure a constant supply of nutrients.</li>
+            <li><strong>Hydration:</strong> Drink plenty of water, but include calorie-containing beverages like smoothies, milk, or natural fruit juices for added energy.</li>
+            <li><strong>Pre- and Post-Workout Nutrition:</strong>
+                <ul>
+                    <li><strong>Pre-Workout:</strong> A meal with carbs and protein 30-60 minutes before exercise (e.g., oatmeal with banana and nuts).</li>
+                    <li><strong>Post-Workout:</strong> Focus on protein and fast-digesting carbs for recovery (e.g., grilled chicken with sweet potato or a protein shake with fruit).</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>Sample Meal Plan:</h4>
+        <ul>
+            <li><strong>Breakfast:</strong> Scrambled eggs with avocado toast and a smoothie (banana, spinach, peanut butter, and protein powder)</li>
+            <li><strong>Morning Snack:</strong> Greek yogurt with mixed berries and granola</li>
+            <li><strong>Lunch:</strong> Grilled chicken with quinoa, roasted vegetables, and olive oil drizzle</li>
+            <li><strong>Afternoon Snack:</strong> Trail mix (nuts, seeds, and dried fruit) or a protein shake</li>
+            <li><strong>Dinner:</strong> Baked salmon with sweet potato and sautéed spinach</li>
+            <li><strong>Evening Snack:</strong> Cottage cheese with sliced almonds and honey</li>
+        </ul>
+    `;
+}
+else if (bmi >= 18.5 && bmi <= 24.9) {
+    workoutPlan = `
+        <p><strong>Maintain your current weight and focus on balanced fitness by incorporating strength training, cardio, and flexibility exercises to stay fit and healthy.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            
+        </div>
+        <h4>Key Elements of a Workout Plan:</h4>
+        <ul>
+            <li><strong>Strength Training:</strong> Focus on full-body workouts 3-4 times a week.
+                <ul>
+                    <li>Compound exercises: Deadlifts, squats, bench press, rows</li>
+                    <li>Include core exercises: Plank, Russian twists, leg raises</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB1Wrr4V5doyQ1hLw8R6GQriDGUBWeYK3ITQ&s width="200" height="200">
+                    <li>Use a mix of weights and bodyweight exercises</li>
+                </ul>
+            </li>
+            <li><strong>Cardio Exercise:</strong> 150 minutes of moderate-intensity cardio per week.
+                <ul>
+                    <li>Running, cycling, swimming, or dancing</li>
+                    <li>Include 1-2 sessions of high-intensity interval training (HIIT)</li>
+                </ul>
+            </li>
+            <li><strong>Flexibility and Mobility:</strong> Yoga or stretching exercises 2-3 times a week</li>
+        </ul>
+        <h5>Sample Workout Routine:</h5>
+        <ul>
+            <li><strong>Day 1: Full-Body Strength</strong>
+                <ul>
+                    <li>Deadlifts: 3 sets of 10 reps</li>
+                    <li>Push-ups: 3 sets of 15 reps</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrGLEX5oZYBNPYEeaD8twuf6ccTNGKPWjyhw&s width="200" height="200">
+                    <li>Dumbbell rows: 3 sets of 10 reps per arm</li>
+                    <li>Plank: 3 sets of 45 seconds</li>
+                </ul>
+            </li>
+            <li><strong>Day 2: Cardio and Core</strong>
+                <ul>
+                    <li>30-minute run or cycle</li>
+                    <li>Russian twists: 3 sets of 20 reps</li>
+                    <li>Leg raises: 3 sets of 15 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 3: Yoga or Active Recovery</strong></li>
+        </ul>
+    `;
+
+    nutritionTips = `
+        <h4>Balanced Nutrition Plan:</h4>
+        <p><strong>Focus on a balanced diet with appropriate proportions of proteins, carbohydrates, fats, and fiber to maintain optimal health.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdMz4FFqPYe-03-VaQWs1Zb5lExSdCUOaoQ&s" width="200" height="150">
+        </div>
+        <h4>Key Elements of a Nutrition Plan:</h4>
+        <ul>
+            <li><strong>Protein Intake:</strong> Supports muscle repair and overall health.
+                <ul>
+                    <li>Lean meats, fish, eggs, dairy</li>
+                    <li>Plant-based proteins: beans, lentils, tofu</li>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGj-pd18C0jSlmDN68dTFgyyvNit38qykFg&s width="200" height="200">
+                </ul>
+            </li>
+            <li><strong>Healthy Fats:</strong> Essential for brain health and hormone production.
+                <ul>
+                    <li>Avocados, olive oil, nuts, seeds</li>
+                    <li>Fatty fish: salmon, mackerel</li>
+                </ul>
+            </li>
+            <li><strong>Complex Carbohydrates:</strong> Provides sustained energy.
+                <ul>
+                    <li>Whole grains, sweet potatoes, quinoa</li>
+                    <li>Fruits and vegetables</li>
+                </ul>
+            </li>
+            <li><strong>Hydration:</strong> Drink at least 8 glasses of water per day.</li>
+        </ul>
+        <h4>Sample Meal Plan:</h4>
+        <ul>
+            <li><strong>Breakfast:</strong> Oatmeal with berries and almond butter</li>
+            <li><strong>Snack:</strong> Apple with peanut butter</li>
+            <li><strong>Lunch:</strong> Grilled chicken salad with quinoa and olive oil dressing</li>
+            <li><strong>Snack:</strong> Greek yogurt with honey and nuts</li>
+            <li><strong>Dinner:</strong> Baked salmon with sweet potato and steamed broccoli</li>
+            <li><strong>Evening Snack:</strong> Cottage cheese with mixed berries</li>
+        </ul>
+    `;
+}
+else {
+    workoutPlan = `
+        <p><strong>Focus on weight loss with a combination of cardio, strength training, and flexibility exercises. Prioritize fat loss while preserving muscle mass.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://www.mensjournal.com/.image/t_share/MjA5MjM2NjAxMzI1MjMzNzc2/weight-loss-exercise-plan.jpg" width="200" height="200">
+        </div>
+        <h4>Key Elements of a Workout Plan:</h4>
+        <ul>
+            <li><strong>Cardio Exercise:</strong> Aim for 200-300 minutes of moderate-intensity cardio per week.
+                <ul>
+                    <li>Walking, jogging, cycling, swimming, or group fitness classes</li>
+                    <li>Include 2-3 sessions of high-intensity interval training (HIIT) for fat burning</li>
+                </ul>
+            </li>
+            <li><strong>Strength Training:</strong> Full-body workouts 2-3 times a week to build muscle and boost metabolism.
+                <ul>
+                    <li>Focus on compound movements: squats, push-ups, rows</li>
+                    <li>Use moderate weights with higher repetitions (12-15 reps per set)</li>
+                </ul>
+            </li>
+            <li><strong>Flexibility and Recovery:</strong> Yoga, stretching, or low-intensity activities 2-3 times a week to improve mobility and prevent injuries.</li>
+        </ul>
+        <h5>Sample Workout Routine:</h5>
+        <ul>
+            <li><strong>Day 1: Cardio and Core</strong>
+                <ul>
+                    <li>30-minute brisk walk or jog</li>
+                    <img src="https://img.redbull.com/images/c_crop,x_702,y_0,h_2135,w_1708/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2017/04/19/14810946-3c3d-4284-98d3-6135705a572b/courtney-atkinson width="100" height="100">
+                    <li>Plank: 3 sets of 30 seconds</li>
+                    <li>Bicycle crunches: 3 sets of 20 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 2: Full-Body Strength</strong>
+                <ul>
+                    <li>Bodyweight squats: 3 sets of 12 reps</li>
+                    <li>Dumbbell rows: 3 sets of 10 reps per arm</li>
+                    <li>Push-ups: 3 sets of 10-15 reps</li>
+                    <li>Russian twists: 3 sets of 20 reps</li>
+                    <ing src="https://www.dmoose.com/cdn/shop/articles/1_3.jpg?v=1648899116 width="200" height="200">
+                </ul>
+            </li>
+            <li><strong>Day 3: Active Recovery (Yoga or Light Stretching)</strong></li>
+            <li><strong>Day 4: HIIT and Core</strong>
+                <ul>
+                    <li>20-minute HIIT workout (30 seconds work, 30 seconds rest for 8-10 rounds)</li>
+                    <li>Leg raises: 3 sets of 15 reps</li>
+                    <li>Mountain climbers: 3 sets of 20 reps</li>
+                </ul>
+            </li>
+            <li><strong>Day 5: Full-Body Strength</strong></li>
+            <li><strong>Day 6: Cardio (Longer session - 40-60 minutes of walking, cycling, or swimming)</strong></li>
+            <li><strong>Day 7: Rest or Light Activity</strong></li>
+        </ul>
+    `;
+
+    nutritionTips = `
+        <h4>Nutrition Plan for Weight Loss:</h4>
+        <p><strong>Focus on creating a calorie deficit while ensuring balanced nutrition. Prioritize high-protein, high-fiber foods to keep you full and energized.</strong></p>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="https://c.ndtvimg.com/2023-07/m9v7pm4_healthy-diet_625x300_16_July_23.jpg?im=FaceCrop,algorithm=dnn,width=384,height=384 width="200" height="150">
+        </div>
+        <h4>Key Elements of a Nutrition Plan:</h4>
+        <ul>
+            <li><strong>High-Protein Diet:</strong> Helps with muscle retention and keeps you full longer.
+                <ul>
+                    <li>Lean meats, eggs, low-fat dairy</li>
+                    <li>Plant-based proteins: lentils, beans, tofu</li>
+                </ul>
+            </li>
+            <li><strong>Healthy Fats:</strong> Supports metabolism and hormone balance.
+                <ul>
+                    <li>Avocado, olive oil, nuts, seeds</li>
+                    <li>Fatty fish: salmon, sardines</li>
+                </ul>
+            </li>
+            <li><strong>Fiber-Rich Foods:</strong> Improves digestion and promotes satiety.
+                <ul>
+                    <li>Whole grains, fruits, vegetables, legumes</li>
+                </ul>
+            </li>
+            <li><strong>Limit Processed Foods:</strong> Avoid sugary drinks, refined carbs, and fried foods.</li>
+            <li><strong>Hydration:</strong> Drink plenty of water (2-3 liters per day).</li>
+        </ul>
+        <h4>Sample Meal Plan:</h4>
+        <ul>
+            <li><strong>Breakfast:</strong> Scrambled eggs with spinach and whole-grain toast</li>
+            <li><strong>Snack:</strong> Carrot sticks with hummus</li>
+            <li><strong>Lunch:</strong> Grilled chicken breast with quinoa and steamed broccoli</li>
+            <li><strong>Snack:</strong> Cottage cheese with cucumber slices</li>
+            <li><strong>Dinner:</strong> Baked salmon with roasted sweet potato and mixed greens</li>
+            <li><strong>Evening Snack:</strong> A handful of almonds or a small protein shake</li>
+        </ul>
+    `;
+}
+
+            if (blood.includes("cholesterol")) {
+                nutritionTips += " Also, avoid high-fat foods to manage cholesterol.";
+            }
+
+            // Display the personalized plan
+            document.getElementById('workout-plan').innerHTML = `<strong>Workout Plan:</strong> ${workoutPlan}`;
+            document.getElementById('nutrition-tips').innerHTML = `<strong>Nutrition Tips:</strong> ${nutritionTips}`;
+            document.getElementById('output').style.display = "block";
+        }
+    </script>
+</body>
+</html>
