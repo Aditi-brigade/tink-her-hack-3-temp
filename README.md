@@ -38,7 +38,7 @@ We propose a website named FITNUR that automatically:
 For Software:
 - html, javascript,css
 - plain html,css,javascript
-- [Libraries used]
+- nil
 - [Tools used]
 
 For Hardware:
