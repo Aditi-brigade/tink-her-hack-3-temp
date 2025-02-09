@@ -72,7 +72,8 @@ For Software:
 )
 *Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
+![Screenshot3](![Screenshot 2025-02-09 095504](https://github.com/user-attachments/assets/ccf4498e-8803-42fc-a652-ff50bfbda4ef)
+)
 *Add caption explaining what this shows*
 
 # Diagrams
