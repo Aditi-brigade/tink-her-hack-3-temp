@@ -10,7 +10,7 @@
 - Member 2: Trisha Nair - Mar athanasius college of engineering
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+[[mention your project hosted project link here](https://github.com/Aditi-brigade/tink-her-hack-3-temp)]
 
 ### Project Description
 The proect takes height,weight and blood result as input and automatically calculate the bmi.With reference to the bmi and other information personalised workout plans are created and nutrition tips are provided to help the user remain healthy.
