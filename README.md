@@ -13,7 +13,7 @@
 [mention your project hosted project link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+The proect takes height,weight and blood result as input and automatically calculate the bmi.With reference to the bmi and other information personalised workout plans are created and nutrition tips are provided to help the user remain healthy.
 
 ### The Problem statement
 In today’s world, maintaining good health and fitness is a top priority for many individuals. However, a significant challenge lies in understanding one’s fitness status and getting a personalized workout and nutrition plan without consulting a professional. Most people are unaware of their Body Mass Index (BMI) and its implications for their health. There is a need for an automated solution that can:
