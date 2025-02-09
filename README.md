@@ -70,7 +70,8 @@ For Software:
 
 ![Screenshot2](![Screenshot 2025-02-09 095312](https://github.com/user-attachments/assets/cbe91392-c8c4-4ef9-92fa-521a6c7d45cd)
 )
-*contents are written using html*
+*This is a HTML structure.
+The form will allow users to input their weight and height, which can later be used  to calculate their BMI or generate a personalized plan.*
 
 ![Screenshot3](![Screenshot 2025-02-09 095504](https://github.com/user-attachments/assets/0fdade55-7da6-4037-bd45-19bf577274cf)
 )
