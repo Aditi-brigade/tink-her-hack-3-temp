@@ -68,7 +68,8 @@ For Software:
 )
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Screenshot2](![Screenshot 2025-02-09 095312](https://github.com/user-attachments/assets/cbe91392-c8c4-4ef9-92fa-521a6c7d45cd)
+)
 *Add caption explaining what this shows*
 
 ![Screenshot3](Add screenshot 3 here with proper name)
