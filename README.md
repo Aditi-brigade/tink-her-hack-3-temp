@@ -1,5 +1,5 @@
 # [FITNUR]🎯
-FITNUR
+
 
 
 ## Basic Details
