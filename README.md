@@ -37,7 +37,7 @@ We propose a website named FITNUR that automatically:
 ### Technologies/Components Used
 For Software:
 - html, javascript,css
-- 
+- plain html,css,javascript
 - [Libraries used]
 - [Tools used]
 
