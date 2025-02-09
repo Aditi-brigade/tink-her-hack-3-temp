@@ -112,9 +112,8 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Aditi M: brainstorming,image uploading,exploring contents,verifying content,setting dimensions,logo,debugging,designing
+- Trisha Nair: brainstorming,image uploading,exploring contents,verifying content,setting dimensions,logo,debugging,designing
 
 ---
 Made with ❤️ at TinkerHub
