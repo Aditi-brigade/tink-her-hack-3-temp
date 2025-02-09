@@ -105,7 +105,7 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+["C:\Users\Aditi\Downloads\video.mp4"]
 *Explain what the video demonstrates*
 
 # Additional Demos
