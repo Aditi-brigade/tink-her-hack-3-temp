@@ -39,7 +39,7 @@ For Software:
 - html, javascript,css
 - plain html,css,javascript
 - nil
-- [Tools used]
+- html,javascript,css,svg,google fonts, for responsive design 
 
 For Hardware:
 - [List main components]
