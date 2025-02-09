@@ -45,7 +45,7 @@ For Software:
 - plain html,css,javascript
 - nil
 - html,javascript,css,svg,google fonts, for responsive design 
->>>>>>> 777e678d2c44572032fc041e4019af5e285dcc37
+
 
 For Hardware:
 - [List main components]
