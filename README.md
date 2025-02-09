@@ -72,7 +72,7 @@ For Software:
 )
 *contents are written using html*
 
-![Screenshot3](![Screenshot 2025-02-09 095504](https://github.com/user-attachments/assets/ccf4498e-8803-42fc-a652-ff50bfbda4ef)
+![Screenshot3](![Screenshot 2025-02-09 095312](https://github.com/user-attachments/assets/f3d8679a-1f60-4667-a7f1-2a2c7e395318)
 )
 *javascript used to specify functions the bmi calculations and give conditions based on the bmi level*
 
