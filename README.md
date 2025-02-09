@@ -66,15 +66,15 @@ For Software:
 # Screenshots (Add at least 3)
 ![Screenshot1](![Screenshot 2025-02-09 094913](https://github.com/user-attachments/assets/4216eff9-834d-426d-b935-f296afe0dda3)
 )
-*Add caption explaining what this shows*
+*css used for styling the webpage*
 
 ![Screenshot2](![Screenshot 2025-02-09 095312](https://github.com/user-attachments/assets/cbe91392-c8c4-4ef9-92fa-521a6c7d45cd)
 )
-*Add caption explaining what this shows*
+*contents are written using html*
 
 ![Screenshot3](![Screenshot 2025-02-09 095504](https://github.com/user-attachments/assets/ccf4498e-8803-42fc-a652-ff50bfbda4ef)
 )
-*Add caption explaining what this shows*
+*javascript used to specify functions the bmi calculations and give conditions based on the bmi level*
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
